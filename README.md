@@ -1,2 +1,2 @@
 # SBU-AI-Challenge
-Codes for Shahid Beheshti Univieristy's next AI Challenge. 
+Codes for some AI challenge we're working on. 
