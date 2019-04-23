@@ -1,13 +1,12 @@
-
-package JsonHandler;
+package JSONHandler.JSONWriter;
 
 import java.io.FileNotFoundException;
 
-abstract public class JSONWriter {
+abstract public class JSONFileWriter {
 
 	protected String fileName;
 
-	public JSONWriter(String fileName) {
+	public JSONFileWriter(String fileName) {
 		this.fileName = fileName;
 	}
 

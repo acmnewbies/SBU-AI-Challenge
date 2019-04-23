@@ -1,8 +1,7 @@
 
 package NetworkStuff.ClientSide;
 
-import JsonHandler.JSONWriter;
-import JsonHandler.PersonJSONWriter;
+import JSONHandler.JSONWriter.PersonJSONFileWriter;
 import SideClasses.Address;
 import SideClasses.Car;
 import SideClasses.Person;
@@ -60,7 +59,7 @@ public class Client {
 			}
 //			System.out.println(currentPerson.getCars()[0].getColor());
 
-			PersonJSONWriter writer = new PersonJSONWriter( currentPerson, id );
+			PersonJSONFileWriter writer = new PersonJSONFileWriter( currentPerson, id );
 			String fileAddress = writer.JSONWrite();
 			dos.writeUTF( fileAddress );
 

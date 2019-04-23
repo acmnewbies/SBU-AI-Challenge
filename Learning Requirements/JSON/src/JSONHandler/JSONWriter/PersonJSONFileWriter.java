@@ -1,5 +1,4 @@
-
-package JsonHandler;
+package JSONHandler.JSONWriter;
 
 import SideClasses.Person;
 import org.json.simple.JSONArray;
@@ -10,11 +9,11 @@ import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class PersonJSONWriter extends JSONWriter {
+public class PersonJSONFileWriter extends JSONFileWriter {
 
 	private Person person;
 
-	public PersonJSONWriter( Person person, String fileName ) {
+	public PersonJSONFileWriter(Person person, String fileName ) {
 		super( fileName );
 		this.person = person;
 	}
@@ -36,21 +35,21 @@ public class PersonJSONWriter extends JSONWriter {
 		JSONArray ja = new JSONArray();
 		for ( int i = 0; i < person.getCars().length; i++ ) {
 			m = new LinkedHashMap(2);
-			m.put("model", person.getCars()[i].getModel() );
 			m.put( "color", person.getCars()[i].getColor() );
+			m.put("model", person.getCars()[i].getModel() );
 			ja.add( m );
 		}
 		jo.put( "cars", ja );
 
 //		PrintWriter pw = new PrintWriter( "src/JSONfiles/" + fileName + ".json" );
-		PrintWriter pw = new PrintWriter( fileName );
+		PrintWriter pw = new PrintWriter( fileName + ".json" );
 		pw.write( jo.toJSONString() );
 
 		pw.flush();
 		pw.close();
 
 //		return "src/JSONfiles/" + fileName + ".json";
-		return fileName;
+		return fileName + ".json";
 
 	}
 

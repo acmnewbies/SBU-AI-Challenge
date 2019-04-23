@@ -1,6 +1,8 @@
 
 package NetworkStuff.ServerSide;
 
+import JSONHandler.JSONParser.JSONParserFromFile;
+import JSONHandler.JSONParser.PersonJSONParserFromFile;
 import SideClasses.Car;
 import SideClasses.Person;
 import org.json.simple.JSONArray;
@@ -46,46 +48,52 @@ public class ClientHandler implements Runnable {
 
 			while ( true ) {
 				String fileAddress = this.dis.readUTF();
-				Object obj = new JSONParser().parse( new FileReader( fileAddress ) );
+//				Object obj = new JSONParser().parse( new FileReader( fileAddress ) );
+//
+//				JSONObject jo = (JSONObject) obj;
+//				Person person = new Person();
+//
+//				person.setFirstName( (String) jo.get("firstName" ) );
+//				person.setLastName( (String) jo.get("lastName" ) );
+//
+//				person.setAge( (long) jo.get("age" ) );
+//
+//				Map address = (Map)jo.get("address");
+//				Iterator<Map.Entry> addressItr = address.entrySet().iterator();
+//				while ( addressItr.hasNext() ) {
+//					Map.Entry pair = addressItr.next();
+//					if ( pair.getKey().equals("city") )
+//						person.getAddress().setCity( (String) pair.getValue() );
+//					else if ( pair.getKey().equals("state") )
+//						person.getAddress().setState( (String) pair.getValue() );
+//				}
+//
+//				JSONArray ja = (JSONArray) jo.get( "cars" );
+//
+//				Iterator arrayItr = ja.iterator();
+//				person.setCars( new Car[ja.size()] );
+//				int carCounter = 0;
+//				while ( arrayItr.hasNext() ) {
+//					Iterator<Map.Entry> carItr = ( (Map) arrayItr.next() ).entrySet().iterator();
+//					while ( carItr.hasNext() ) {
+//						person.getCars()[carCounter] = new Car();
+//						Map.Entry pair = carItr.next();
+//						if ( pair.getKey().equals("model") )
+//							person.getCars()[carCounter].setModel( (String) pair.getValue() );
+//						else if ( pair.getKey().equals("color") )
+//							person.getCars()[carCounter].setColor( (String) pair.getValue() );
+//					}
+//					carCounter++;
+//				}
+//
+//				System.out.println( person );
+//				persons.add( person );
 
-				JSONObject jo = (JSONObject) obj;
-				Person person = new Person();
-
-				person.setFirstName( (String) jo.get("firstName" ) );
-				person.setLastName( (String) jo.get("lastName" ) );
-
-				person.setAge( (long) jo.get("age" ) );
-
-				Map address = (Map)jo.get("address");
-				Iterator<Map.Entry> addressItr = address.entrySet().iterator();
-				while ( addressItr.hasNext() ) {
-					Map.Entry pair = addressItr.next();
-					if ( pair.getKey().equals("city") )
-						person.getAddress().setCity( (String) pair.getValue() );
-					else if ( pair.getKey().equals("state") )
-						person.getAddress().setState( (String) pair.getValue() );
-				}
-
-				JSONArray ja = (JSONArray) jo.get( "cars" );
-
-				Iterator arrayItr = ja.iterator();
-				person.setCars( new Car[ja.size()] );
-				int carCounter = 0;
-				while ( arrayItr.hasNext() ) {
-					Iterator<Map.Entry> carItr = ( (Map) arrayItr.next() ).entrySet().iterator();
-					while ( carItr.hasNext() ) {
-						person.getCars()[carCounter] = new Car();
-						Map.Entry pair = carItr.next();
-						if ( pair.getKey().equals("model") )
-							person.getCars()[carCounter].setModel( (String) pair.getValue() );
-						else if ( pair.getKey().equals("color") )
-							person.getCars()[carCounter].setColor( (String) pair.getValue() );
-					}
-					carCounter++;
-				}
-
+				PersonJSONParserFromFile parser = new PersonJSONParserFromFile( fileAddress );
+				Person person = parser.JSONParse();
 				System.out.println( person );
 				persons.add( person );
+
 
 			}
 
@@ -94,10 +102,10 @@ public class ClientHandler implements Runnable {
 			System.out.println( "IOException in ClientHandler" );
 			System.exit( 12 );
 		}
-		catch ( ParseException parseException ) {
-			System.out.println( "Parse Exception!" );
-			System.exit( 13 );
-		}
+//		catch ( ParseException parseException ) {
+//			System.out.println( "Parse Exception!" );
+//			System.exit( 13 );
+//		}
 
 	}
 
