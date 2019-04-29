@@ -1,7 +1,7 @@
 
 package NetworkStuff.ClientSide;
 
-import JSONHandler.JSONWriter.PersonJSONFileWriter;
+import GSONHandler.GSONWriter.PersonGSONFileWriter;
 import SideClasses.Address;
 import SideClasses.Car;
 import SideClasses.Person;
@@ -59,8 +59,8 @@ public class Client {
 			}
 //			System.out.println(currentPerson.getCars()[0].getColor());
 
-			PersonJSONFileWriter writer = new PersonJSONFileWriter( currentPerson, id );
-			String fileAddress = writer.JSONWrite();
+			PersonGSONFileWriter writer = new PersonGSONFileWriter( currentPerson, id );
+			String fileAddress = writer.GSONWrite();
 			dos.writeUTF( fileAddress );
 
 			System.out.println( "Do you want to add another person? (y/n)" );

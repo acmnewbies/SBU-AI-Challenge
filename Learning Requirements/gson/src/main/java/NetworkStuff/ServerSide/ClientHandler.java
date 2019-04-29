@@ -1,22 +1,13 @@
 
 package NetworkStuff.ServerSide;
 
-import JSONHandler.JSONParser.JSONParserFromFile;
-import JSONHandler.JSONParser.PersonJSONParserFromFile;
-import SideClasses.Car;
+import GSONHandler.GSONParser.PersonGSONParserFromFile;
 import SideClasses.Person;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Iterator;
-import java.util.Map;
 
 import static NetworkStuff.ServerSide.Server.persons;
 
@@ -89,8 +80,9 @@ public class ClientHandler implements Runnable {
 //				System.out.println( person );
 //				persons.add( person );
 
-				PersonJSONParserFromFile parser = new PersonJSONParserFromFile( fileAddress );
-				Person person = parser.JSONParse();
+//				System.out.println( "FileAddress: " + fileAddress );
+				PersonGSONParserFromFile parser = new PersonGSONParserFromFile( fileAddress );
+				Person person = parser.GSONParse();
 				System.out.println( person );
 				persons.add( person );
 
