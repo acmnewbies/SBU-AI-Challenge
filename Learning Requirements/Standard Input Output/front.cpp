@@ -25,6 +25,7 @@ int main () {
 	cout << answer << endl;
 	
 	fin.close();
+	system( "rm javaInput javaOutput Doubler.class" );
 	
 	return 0;
 	
