@@ -7,7 +7,7 @@
     <class name = "QueryObject" table = "Users">
 
         <meta attribute = "class-description">
-            This class contains the employee detail.
+            QueryObject has Users profile as an object to store in mysql database.
         </meta>
 
         <id name = "id" type = "int" column = "ID">

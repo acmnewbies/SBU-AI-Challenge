@@ -22,7 +22,7 @@ public class HibernateTest {
         }
     }
 
-    /* Method to CREATE an employee in the database */
+    /* Method to CREATE a user in the database */
     public Integer addProfile(String firstname ,String lastname, String email, Profile profile){
         Session session = factory.openSession();
         Transaction tx = null;
@@ -84,15 +84,13 @@ public class HibernateTest {
         }
     }
 
-    /* Method to DELETE an employee from the records */
-    public void deleteEmployee(Integer EmployeeID){
+    /* Method to DELETE a user from the database */
+    public void deleteEmployee(Profile profile){
         Session session = factory.openSession();
         Transaction tx = null;
-
         try {
             tx = session.beginTransaction();
-            Profile employee = (Profile)session.get(Profile.class, EmployeeID);
-            session.delete(employee);
+            session.delete(profile);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -100,6 +98,24 @@ public class HibernateTest {
         } finally {
             session.close();
         }
+    }
+
+    public Profile getUserFromBase(int id){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Profile profile = null;
+        try {
+            tx = session.beginTransaction();
+            profile = session.get(Profile.class, id);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return profile;
+
     }
 }
 
