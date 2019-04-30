@@ -11,7 +11,7 @@ public class MySQLTest {
     public static void main(String[] args) {
 
         try {
-            connectToDB();
+            //connectToDB();
             HibernateTest hb = new HibernateTest();
             hb.addProfile("m" , "m" , "s.com" , new Profile("m" , 10 ));
             //insertToDB("amirali", "monjar", "ami@g.com");

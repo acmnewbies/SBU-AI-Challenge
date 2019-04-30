@@ -10,7 +10,7 @@
             This class contains the employee detail.
         </meta>
 
-        <id name = "id" type = "int" column = "id">
+        <id name = "id" type = "int" column = "ID">
             <generator class="native"/>
         </id>
 

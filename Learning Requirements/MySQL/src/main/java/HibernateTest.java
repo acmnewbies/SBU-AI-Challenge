@@ -1,6 +1,7 @@
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.*;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Iterator;
@@ -9,16 +10,18 @@ import java.util.List;
 public class HibernateTest {
 
 
+    private SessionFactory factory;
+
     HibernateTest(){
         try {
-            factory = new Configuration().configure().  buildSessionFactory();
+            //factory = new Configuration().configure().  buildSessionFactory();
+            factory = new Configuration().configure().addAnnotatedClass(QueryObject.class).buildSessionFactory();
+
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
     }
 
-
-    private SessionFactory factory;
     /* Method to CREATE an employee in the database */
     public Integer addProfile(String firstname ,String lastname, String email, Profile profile){
         Session session = factory.openSession();
