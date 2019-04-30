@@ -1,7 +1,6 @@
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.*;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Iterator;
@@ -21,8 +20,7 @@ public class HibernateTest {
             ex.printStackTrace();
         }
     }
-
-    /* Method to CREATE a user in the database */
+//  Method to CREATE a user in the database
     public Integer addProfile(String firstname ,String lastname, String email, Profile profile){
         Session session = factory.openSession();
         Transaction tx = null;
@@ -42,19 +40,16 @@ public class HibernateTest {
         return profileID;
     }
 
-    /* Method to  READ all the employees */
-    public void listEmployees( ){
+//  Method to  READ all the employees
+    public void iterateOnList( ){
         Session session = factory.openSession();
         Transaction tx = null;
 
         try {
             tx = session.beginTransaction();
-            List employees = session.createQuery("FROM Employee").list();
+            List employees = session.createQuery("FROM Users").list();
             for (Iterator iterator = employees.iterator(); iterator.hasNext();){
-                Profile employee = (Profile) iterator.next();
-//                System.out.print("First Name: " + employee.getFirstName());
-//                System.out.print("  Last Name: " + employee.getLastName());
-//                System.out.println("  Salary: " + employee.getSalary());
+                QueryObject qb = (QueryObject) iterator.next();
             }
             tx.commit();
         } catch (HibernateException e) {
@@ -65,7 +60,7 @@ public class HibernateTest {
         }
     }
 
-    /* Method to UPDATE salary for an employee */
+//  Method to UPDATE salary for an employee
     public void updateEmployee(Integer EmployeeID, int salary ){
         Session session = factory.openSession();
         Transaction tx = null;
@@ -84,7 +79,7 @@ public class HibernateTest {
         }
     }
 
-    /* Method to DELETE a user from the database */
+//  Method to DELETE a user from the database
     public void deleteEmployee(Profile profile){
         Session session = factory.openSession();
         Transaction tx = null;
@@ -99,14 +94,14 @@ public class HibernateTest {
             session.close();
         }
     }
-
-    public Profile getUserFromBase(int id){
+//  method to get a users column from DB
+    public QueryObject getUserFromBase(int id){
         Session session = factory.openSession();
         Transaction tx = null;
-        Profile profile = null;
+        QueryObject qo = null;
         try {
             tx = session.beginTransaction();
-            profile = session.get(Profile.class, id);
+            qo = session.get(QueryObject.class, id);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -114,9 +109,10 @@ public class HibernateTest {
         } finally {
             session.close();
         }
-        return profile;
+        return qo;
 
     }
+
 }
 
 

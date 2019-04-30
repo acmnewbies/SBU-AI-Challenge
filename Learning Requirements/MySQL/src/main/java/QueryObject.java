@@ -54,4 +54,9 @@ public class QueryObject {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return this.id + ", " + this.getFirstName() + ", " + this.getLastName() + ", " + this.getEmail();
+    }
 }
