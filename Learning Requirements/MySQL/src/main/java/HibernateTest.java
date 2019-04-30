@@ -11,7 +11,7 @@ public class HibernateTest {
 
     HibernateTest(){
         try {
-            factory = new Configuration().configure().buildSessionFactory();
+            factory = new Configuration().configure().  buildSessionFactory();
         } catch (Throwable ex) {
             ex.printStackTrace();
         }
@@ -20,7 +20,7 @@ public class HibernateTest {
 
     private SessionFactory factory;
     /* Method to CREATE an employee in the database */
-    public Integer addProfile(String firstname ,String lastname, String email){
+    public Integer addProfile(String firstname ,String lastname, String email, Profile profile){
         Session session = factory.openSession();
         Transaction tx = null;
         Integer profileID = null;

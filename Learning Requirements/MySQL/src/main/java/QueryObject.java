@@ -1,9 +1,17 @@
-public class QueryObject {
+import javax.persistence.*;
 
-    private String FirstName;
-    private String LastName;
-    private String Email;
+@Entity
+@Table(name = "Users")
+public class QueryObject {
+    @Id @GeneratedValue
+    @Column(name = "ID")
     private int id;
+    @Column(name = "FirstName")
+    private String FirstName;
+    @Column(name = "LastName")
+    private String LastName;
+    @Column(name = "Email")
+    private String Email;
 
 
     QueryObject(String FirstName, String LastName, String Email){
@@ -24,6 +32,8 @@ public class QueryObject {
     public String getLastName() {
         return LastName;
     }
+
+
 
     public void setEmail(String email) {
         Email = email;

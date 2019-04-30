@@ -13,7 +13,7 @@ public class MySQLTest {
         try {
             connectToDB();
             HibernateTest hb = new HibernateTest();
-            hb.addProfile("meysam" , "rasooli" , "s.com");
+            hb.addProfile("m" , "m" , "s.com" , new Profile("m" , 10 ));
             //insertToDB("amirali", "monjar", "ami@g.com");
             //deleteFromDB("ID = 2");
             //Profile p= new Profile("r.sayadi" , 20 ,1);
@@ -79,7 +79,7 @@ public class MySQLTest {
             System.out.println("lastName : " + lastname);
             System.out.println("email : " + email);
             if (profile != null)
-                System.out.println("Profile: \n\tName-->" + profile.firstname + "\n\tID-->" + profile.id + "\n\tAge-->" + profile.age);
+                System.out.println("Profile: \n\tName-->" + profile.firstname + "\n\tAge-->" + profile.age);
             System.out.println("---------------------");
         }
     }
@@ -102,7 +102,7 @@ public class MySQLTest {
         Blob blob = ps.getConnection().createBlob();
         blob.setBytes(1, byteObject);
         //ps.setObject(1 ,profile);
-        ps.setInt(2 , profile.id);
+       // ps.setInt(2 , profile.id);
         ps.setBlob(1 , blob);
         ps.execute();
         ps.close();
