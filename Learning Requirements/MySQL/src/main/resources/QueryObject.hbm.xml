@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "QueryObject" table = "Users">
+
+        <meta attribute = "class-description">
+            QueryObject has Users profile as an object to store in mysql database.
+        </meta>
+
+        <id name = "id" type = "int" column = "ID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "FirstName" column = "FirstName" type = "string"/>
+        <property name = "LastName" column = "LastName" type = "string"/>
+        <property name = "Email" column = "Email" type = "string"/>
+
+    </class>
+</hibernate-mapping>
