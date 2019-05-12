@@ -31,3 +31,9 @@ int main () {
 	
 }
 
+
+
+java how to run a proccess
+how to access proccess streams
+
+
