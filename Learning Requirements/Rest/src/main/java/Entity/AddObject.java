@@ -1,9 +1,11 @@
+package Entity;
+
 public class AddObject {
     private int number1;
     private int number2;
     private int sum;
 
-    AddObject(int number1, int number2){
+    public AddObject(int number1, int number2){
         this.number1 = number1;
         this.number2 = number2;
     }
@@ -20,4 +22,7 @@ public class AddObject {
         return sum;
     }
 
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
 }
