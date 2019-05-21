@@ -2,14 +2,18 @@ import java.awt.*;
 
 public class GameObject {
     private Cord cord;
-    private Image objectImage;
+    private String objectImage;
 
+    GameObject(Cord cord, String objectImage){
+        this.cord = cord;
+        this.objectImage = objectImage;
+    }
 
     public Cord getCord() {
         return cord;
     }
 
-    public Image getObjectImage() {
+    public String getObjectImage() {
         return objectImage;
     }
 
@@ -17,7 +21,7 @@ public class GameObject {
         this.cord = cord;
     }
 
-    public void setObjectImage(Image objectImage) {
+    public void setObjectImage(String objectImage) {
         this.objectImage = objectImage;
     }
 }
