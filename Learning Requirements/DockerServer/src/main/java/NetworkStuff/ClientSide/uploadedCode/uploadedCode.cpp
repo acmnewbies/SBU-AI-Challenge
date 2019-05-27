@@ -14,7 +14,7 @@ int main () {
 		if ( response == "END" )
 			exit( 0 );
 		else if ( response == "ENTER_A_NUMBER" )
-			std::cout << ( rand() % 6 ) + 1;
+			std::cout << ( rand() % 6 ) + 1 << std::endl;
 		else
 			exit( 1 );
 	}
