@@ -1,6 +1,8 @@
+package GameLogic;
+
 public class Cord {
     private int x,y;
-    Cord(int x, int y){
+    public Cord(int x, int y){
         this.x = x;
         this.y = y;
     }

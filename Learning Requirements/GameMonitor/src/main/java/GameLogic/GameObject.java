@@ -1,3 +1,5 @@
+package GameLogic;
+
 import java.awt.*;
 
 public class GameObject {
@@ -18,7 +20,7 @@ public class GameObject {
     }
 
     public void setCord(Cord cord) {
-        this.cord = cord;
+        this.cord = new Cord(cord.getX() , cord.getY());
     }
 
     public void setObjectImage(String objectImage) {
