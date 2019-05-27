@@ -6,6 +6,7 @@
 
 int main () { 
 
+	srand( time( NULL ) );
 	std::string response;
 
 	while ( true ) {
