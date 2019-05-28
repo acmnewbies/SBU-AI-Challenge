@@ -14,11 +14,13 @@ public class KeyBoardHandler extends KeyAdapter {
     private GameMap gameMap;
     private boolean isReplay;
     private int keyCode;
+    private FrameNumber frames;
 
-    KeyBoardHandler(GameMap gameMap, ArrayList<Movement> moves, boolean isReplay ){
+    KeyBoardHandler(GameMap gameMap, ArrayList<Movement> moves, boolean isReplay, FrameNumber frames ){
         this.moves = moves;
         this.gameMap = gameMap;
         this.isReplay = isReplay;
+        this.frames = frames;
     }
 
     @Override
@@ -36,7 +38,7 @@ public class KeyBoardHandler extends KeyAdapter {
     private void makeMove(int vertical, int horizantal){
         Cord blackCord = new Cord(gameMap.getBlackX() , gameMap.getBlackY() );
         Cord move = new Cord(gameMap.getBlackX() + horizantal, gameMap.getBlackY() + vertical );
-        moves.add(new Movement(blackCord , move));
+        moves.add(new Movement(blackCord , move, frames));
         gameMap.swap(blackCord , move );
         gameMap.moveBlack(vertical ,horizantal);
     }
