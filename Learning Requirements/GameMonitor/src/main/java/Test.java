@@ -1,14 +1,9 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Monitor.GameMonitor;
 
-public class Test implements ActionListener {
+public class Test  {
 
     public static void main(String[] args)  {
-        GameMonitor gm = new GameMonitor(1000 , 500 , 40);
+        GameMonitor gm = new GameMonitor(800 , 400 , 10,false );
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }

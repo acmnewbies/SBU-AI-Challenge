@@ -1,0 +1,70 @@
+.ui-container{
+
+    direction: rtl;
+
+    padding-bottom: 250px;
+    padding-top: 150px;
+    padding-left: 500px;
+    padding-right: 500px;
+
+
+}
+body{
+    background-size: 100%;
+    background-size:100%;
+    background: url("28158.jpg") no-repeat fixed center;
+
+    z-index: -1000;
+
+
+}
+table, th, td {
+    border: 1px solid black;
+}
+
+#right-sidebar{
+
+    padding-right: 500px;
+
+}
+
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+    opacity: .8;
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 10px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #343a40; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+.navbar a:hover {
+   color: #dc3545 /* Dark grey background on mouse-over */
+}
+#topnav :hover{
+    color: #dc3545;
+}
+#topnav{
+    color: white;
+}
+.scrolled{
+opacity: .4;
+    transition: 0.1s;
+}
+
+#tabel{
+    opacity: 0.8;
+}
+.dropdown-menu :hover .dropdown-item { display: block;}
