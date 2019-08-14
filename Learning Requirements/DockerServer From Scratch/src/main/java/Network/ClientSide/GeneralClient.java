@@ -20,7 +20,10 @@ public class GeneralClient {
 
 	private static void startClientGame() throws IOException {
 
-		Process uploadedCodeProcess = ProcessExecutor.invoke( "bash", "Network/ClientSide/uploadedCode/compileAndRun.sh" );
+		Process uploadedCodeProcess = ProcessExecutor.invoke( "bash", "src/main/java/Network/ClientSide/uploadedCode/compileAndRun.sh");
+//		ProcessIOHandler.printProcessInputStreamOneLine( uploadedCodeProcess );
+		ProcessIOHandler.writeToProcess( uploadedCodeProcess, "ENTER_A_NUMBER\n" );
+		ProcessIOHandler.printProcessInputStreamOneLine( uploadedCodeProcess );
 
 	}
 

@@ -19,6 +19,14 @@ public class ProcessIOHandler {
 
 	}
 
+	public static void printProcessInputStreamOneLine( Process process) throws IOException {
+
+		BufferedReader bf = getBufferedReader( process.getInputStream() );
+		String line = bf.readLine();
+		System.out.println( line );
+
+	}
+
 	public static void writeToProcess( Process process, String input ) throws IOException {
 		BufferedWriter bw = new BufferedWriter( new OutputStreamWriter( process.getOutputStream() ) );
 		bw.write( input );
