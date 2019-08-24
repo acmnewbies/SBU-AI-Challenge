@@ -1,6 +1,9 @@
 
 package Network.ServerSide;
 
+import ProcessHandlers.ProcessExecutor;
+import ProcessHandlers.ProcessIOHandler;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 
@@ -29,9 +32,11 @@ public class Server {
 
 	}
 
-	private static void startPlayers() {
+	private static void startPlayers() throws IOException {
 
-		//  This function must run the docker image that contains general client
+		Process player1Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
+		Process player2Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
+//		ProcessIOHandler.printProcessInputStream( generalClientProcess );
 
 	}
 

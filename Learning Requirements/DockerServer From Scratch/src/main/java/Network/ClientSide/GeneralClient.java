@@ -22,8 +22,8 @@ public class GeneralClient {
 
 		Process uploadedCodeProcess = ProcessExecutor.invoke( "bash", "src/main/java/Network/ClientSide/uploadedCode/compileAndRun.sh");
 //		ProcessIOHandler.printProcessInputStreamOneLine( uploadedCodeProcess );
-		ProcessIOHandler.writeToProcess( uploadedCodeProcess, "ENTER_A_NUMBER\n" );
-		ProcessIOHandler.printProcessInputStreamOneLine( uploadedCodeProcess );
+//		ProcessIOHandler.writeToProcess( uploadedCodeProcess, "ENTER_A_NUMBER\n" );
+//		ProcessIOHandler.printProcessInputStreamOneLine( uploadedCodeProcess );
 
 	}
 
