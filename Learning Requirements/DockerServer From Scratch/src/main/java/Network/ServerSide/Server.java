@@ -34,8 +34,8 @@ public class Server {
 
 	private static void startPlayers() throws IOException {
 
-		Process player1Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
-		Process player2Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
+//		Process player1Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
+//		Process player2Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
 //		ProcessIOHandler.printProcessInputStream( generalClientProcess );
 
 	}
