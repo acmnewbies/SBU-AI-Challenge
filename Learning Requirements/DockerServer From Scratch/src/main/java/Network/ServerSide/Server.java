@@ -4,6 +4,7 @@ package Network.ServerSide;
 import ProcessHandlers.ProcessExecutor;
 import ProcessHandlers.ProcessIOHandler;
 
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 
@@ -23,6 +24,12 @@ public class Server {
 
 		socketListenerThread.join(); // Wait for players to connect
 
+		// Khob alan do taa bazikon vasl shodan
+
+//		DataInputStream temp = new DataInputStream( socketListenerThread.getPlayer1Socket().getInputStream() );
+//		String testReturnValue = temp.readUTF();
+//		System.out.println( testReturnValue );
+
 	}
 
 	private static void startListening() {
@@ -34,9 +41,10 @@ public class Server {
 
 	private static void startPlayers() throws IOException {
 
-//		Process player1Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
-//		Process player2Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh" );
-//		ProcessIOHandler.printProcessInputStream( generalClientProcess );
+		Process player1Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh", "player1container" );
+//		ProcessIOHandler.printProcessErrorStream( player1Process );
+		Process player2Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh", "player2container" );
+//		ProcessIOHandler.printProcessErrorStream( player2Process );
 
 	}
 
