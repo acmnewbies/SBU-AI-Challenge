@@ -21,9 +21,14 @@ public class ProcessIOHandler {
 
 	public static void printProcessInputStreamOneLine( Process process) throws IOException {
 
+		System.out.println( ProcessIOHandler.getProcessInputStreamOneLine( process ) );
+
+	}
+
+	public static String getProcessInputStreamOneLine( Process process ) throws IOException {
+
 		BufferedReader bf = getBufferedReader( process.getInputStream() );
-		String line = bf.readLine();
-		System.out.println( line );
+		return bf.readLine();
 
 	}
 
