@@ -7,7 +7,7 @@ WORKDIR /usr/src/AIChallengeDockerServer
 # RUN ls
 
 RUN javac Network/ClientSide/GeneralClient.java
-RUN apt-get update && apt-get -y install g++ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y install g++ python3 && rm -rf /var/lib/apt/lists/*
 
 CMD [ "java", "Network.ClientSide.GeneralClient" ]
 
