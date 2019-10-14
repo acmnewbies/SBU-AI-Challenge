@@ -38,7 +38,6 @@ public class Server {
 		socketListenerThread.start();
 
 	}
-
 	private static void startPlayers() throws IOException {
 
 		Process player1Process = ProcessExecutor.invoke( "bash", "runGeneralClient.sh", "player1container" );
